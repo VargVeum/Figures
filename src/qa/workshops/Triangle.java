@@ -13,7 +13,7 @@ public class Triangle extends Figure{
 
     public void showArea() {
         double area = (width * height)/2;
-        System.out.println("Площадь треугольника равна: " + ConsoleColors.ANSI_PURPLE + area + ConsoleColors.ANSI_RESET);
+        System.out.println("Площадь треугольника равна: " + ConsoleColors.ANSI_BLUE + area + ConsoleColors.ANSI_RESET);
     }
 
     private void getParametersFromUser() {
