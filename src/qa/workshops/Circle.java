@@ -1,15 +1,16 @@
 package qa.workshops;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Circle extends Figure {
     private double radius;
 
-    public Circle() {
+    public Circle() throws InputMismatchException {
         getParametersFromUser();
     }
 
-    private void getParametersFromUser() {
+    private void getParametersFromUser() throws InputMismatchException{
         System.out.print("Введите радиус окружности: \n");
 
         Scanner sc = new Scanner(System.in);

@@ -1,4 +1,5 @@
 package qa.workshops;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Rectangle extends Figure {
@@ -6,12 +7,11 @@ public class Rectangle extends Figure {
     public double width;
     public double length;
 
-    public Rectangle()
-    {
+    public Rectangle() throws InputMismatchException {
         getParametersFromUser();
     }
 
-    public void getParametersFromUser()    {
+    public void getParametersFromUser() throws InputMismatchException  {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите ширину прямоугольника:");
         length = scanner.nextDouble();

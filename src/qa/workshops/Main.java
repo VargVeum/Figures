@@ -1,67 +1,85 @@
 package qa.workshops;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
-//        Triangle triangle = new Triangle();
-//        triangle.showArea();
-
-//        Circle circle = new Circle();
-//        circle.showArea();
-
-//        Square square = new Square();
-//        square.showArea();
-
-//        Rectangle rectangle = new Rectangle();
-//        rectangle.showArea();
-
-        int triangle;
-        int circle;
-        int square;
-        int rectangle;
         int wantToContinue;
         int sign = 0;
 
         Scanner scanner = new Scanner(System.in);
 
         do {
+            System.out.println("Выберите фигуру для расчета площади: " +
+                    "\n 1 - Triangle (Треугольник), 2 - Circle (Круг), 3 - Square (Квадрат), 4 - Rectangle (Прямоугольник)");
             try {
-                System.out.println("Выберите фигуру для расчета площади: " +
-                        "\n 1 - Triangle (Треугольник), 2 - Circle (Круг), 3 - Square (Квадрат), 4 - Rectangle (Прямоугольник)");
                 sign = scanner.nextInt();
-            }
-            catch (Exception ex) {
+            } catch (InputMismatchException ex) {
                 System.out.println(ex.toString());
             }
 
-            switch(sign){
+            switch (sign) {
                 case 1:
-                    do {
-                        Triangle triangle = new Triangle();
-                        triangle.showArea();
-                    }
+                    triangle();
                     break;
                 case 2:
-                    result=number1-number2;
-                    System.out.println(result);
+                    circle();
                     break;
                 case 3:
-                    result=number1*number2;
-                    System.out.println(result);
+                    square();
                     break;
                 case 4:
-                    result=number1/number2;
-                    System.out.println(result);
+                    rectangle();
                     break;
             }
             System.out.println("Вы хотите продолжить? y - Да, n - Нет");
             wantToContinue = scanner.next().charAt(0);
         }
-            while (wantToContinue == 'Y' || wantToContinue == 'y' );
+        while (wantToContinue == 'Y' || wantToContinue == 'y');
 
+        System.out.println("Количество фигур: " + Figure.getCounter());
+    }
+
+    private static void rectangle() {
+        try {
+            Rectangle rectangle = new Rectangle();
+            rectangle.showArea();
+        } catch (InputMismatchException ex){
+            System.out.println("Неправильно введенный формат данных!");
         }
 
     }
+
+    private static void square() {
+        try {
+            Square square = new Square();
+            square.showArea();
+        } catch (InputMismatchException ex) {
+            System.out.println("Неправильно введенный формат данных!");
+        }
+    }
+
+    private static void triangle() {
+        try {
+            Triangle triangle = new Triangle();
+            triangle.showArea();
+        } catch (InputMismatchException ex) {
+            System.out.println("Неправильно введенный формат данных!");
+        }
+
+    }
+
+    private static void circle() {
+        try {
+            Circle circle = new Circle();
+            circle.showArea();
+        } catch (InputMismatchException ex) {
+            System.out.println("Неправильно введенный формат данных!");
+        }
+
+    }
+
+}

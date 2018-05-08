@@ -1,22 +1,22 @@
 package qa.workshops;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Triangle extends Figure{
+public class Triangle extends Figure {
     private double width;
     private double height;
 
-    public Triangle()
-    {
+    public Triangle() throws InputMismatchException {
         getParametersFromUser();
     }
 
     public void showArea() {
-        double area = (width * height)/2;
+        double area = (width * height) / 2;
         System.out.println("Площадь треугольника равна: " + ConsoleColors.ANSI_BLUE + area + ConsoleColors.ANSI_RESET);
     }
 
-    private void getParametersFromUser() {
+    private void getParametersFromUser() throws InputMismatchException {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Введите ширину треугольника:");
@@ -25,6 +25,4 @@ public class Triangle extends Figure{
         System.out.println("Введите высоту треугольника:");
         height = scanner.nextDouble();
     }
-
-
 }
